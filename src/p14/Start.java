@@ -1,17 +1,17 @@
 package p14;
 
 public class Start {
-	//フィールド
-	
+
 	public static void main(String[] args) {
+		//Cameraクラスを継承したMobileクラスのインスタンスを生成
+		Mobile m = new Mobile("090-1234-5678", "キヤノン");
 		
-		Mobile m = new Mobile();
+		//フィールドとメソッドにアクセス
+//		m.setTelNo("090-1234-5678");
+//		m.setMaker("キヤノン");
 		
-		m.setTelNo = "090-1234-5678";
-		m.setMaker = "キャノン";
-		
-		m.getTelNo ();
-		m.getMaker ();
+		m.talk();
+		m.takePicture();
 	}
 
 }

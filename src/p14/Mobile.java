@@ -1,41 +1,32 @@
 package p14;
 
 public class Mobile extends Camera {
-	//フィールド（メンバ変数）の定義
-	private String telNo; //名前
+	//フィールド
+	private String telNo; //電話番号
 	
-	
-	
-	
-	//コンストラクタの定義
-	public Mobile(String telNo,String maker) {
-		super(maker);
-		System.out.println("Mobileコンストラクタ");
-		
+	//コンストラクタ
+	public Mobile() {
+
 	}
 	
-	/**
-	 * @return telNo
-	 */
+	public Mobile(String telNo, String maker) {
+		super(maker);
+		this.telNo = telNo;
+		//setMaker(maker);
+	}
+	
+	//アクセッサ・メソッド
 	public String getTelNo() {
 		return telNo;
 	}
 
-
-	/**
-	 * @param telNo セットする telNo
-	 */
 	public void setTelNo(String telNo) {
 		this.telNo = telNo;
 	}
-
-
-
-
-	//メソッドの定義
+	
+	//メソッド
 	public void talk() {
 		System.out.println("電話番号：" + telNo);
-		System.out.println("話し中");
+		System.out.println("話し中です！");
 	}
-
 }
