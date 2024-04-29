@@ -50,7 +50,7 @@ public class Employee {
 
 	// 情報出力メソッド
 	public void introduce() {
-		System.out.println(this.name + "さんは" + age + "歳です");
+		System.out.println(this.name + "さんは" + this.age + "歳です");
 
 	}
 
