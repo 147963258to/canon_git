@@ -14,6 +14,7 @@ public class UseCustomer2 {
 			int id = scan.nextInt(); // IDの入力
 			System.out.print("名前：");
 			String name = scan.next(); // 名前の入力
+			
 			Customer customer;
 			if (id == -1) {
 				// IDが-1なら名前だけ登録

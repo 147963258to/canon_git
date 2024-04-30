@@ -9,12 +9,13 @@ public class UseCustomer1 {
 		Scanner scan = new Scanner(System.in);
 		// 顧客データの読み込み
 		for (int index = 0; index < customerList.length; index++) {
-			System.out.println((index + 1)
-					+ "人目の顧客情報を入力してください。");
+			System.out.println((index+1 )+ "人目の顧客情報を入力してください。");
 			System.out.print("ID：");
 			int id = scan.nextInt(); // IDの入力
 			System.out.print("名前：");
 			String name = scan.next(); // 名前の入力
+			
+			
 			Customer customer;
 			if (id == -1) {
 				// IDが-1なら名前だけ登録
