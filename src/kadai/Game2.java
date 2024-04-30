@@ -11,7 +11,7 @@ public class Game2 {
 		scan = new Scanner(System.in);
 
 		//メソッドの呼び出し
-		String randomnum = Randomnum();
+		int randomnum = Randomnum();
 		Gameone(randomnum);
 		//System.out.println(kekka + "回でクリア");
 		
@@ -30,6 +30,11 @@ public class Game2 {
 	}
 
 	//メソッドの定義
+
+	private static void Gameone(int randomnum) {
+		// TODO 自動生成されたメソッド・スタブ
+		
+	}
 
 	static int Randomnum() {
 		Random rand = new Random();
