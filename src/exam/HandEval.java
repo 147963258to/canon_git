@@ -35,4 +35,18 @@ public enum HandEval {
 		
 		return value;
 	}
+	
+	
+//	public static HandEval getHand(int code) {
+//		HandEval hand = null;
+//
+//		for (HandEval val : HandEval.values()) {
+//			if (val.code == code) {
+//				hand = val;
+//				break;
+//			}
+//		}
+//		return hand;
+//	}
+	
 }
