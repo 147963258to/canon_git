@@ -1,0 +1,79 @@
+package kadai40;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Jdbc3 {
+	static Scanner scan;
+	public static void main(String[] args) {
+		//JDBCドライバの登録
+		//JDBCドライバマネージャーに使用するDBの種類を教える
+		
+		try {
+			Class.forName("org.postgresql.Driver");
+		} catch (ClassNotFoundException e) {
+			System.out.println("JDBCドライバが登録されていません");
+			e.printStackTrace();
+		}
+		
+		Scanner scan = new Scanner(System.in);
+		
+		//接続情報の設定
+		String url = "jdbc:postgresql:canon_db"; //接続するDB名
+		String user = "postgres";                //ユーザ名
+		String pass = "himitu";                  //パスワード
+		
+		String sql = "INSERT INTO emp VALUES(?, ?, ?, ?)";
+		
+		
+		System.out.print("コードを入力してください：");
+		int inputCode = scan.nextInt(); // 操作入力
+		System.out.print("名前を入力してください：");
+		String inputName = scan.next(); // 操作入力
+		System.out.print("年齢を入力してください：");
+		int inputage = scan.nextInt(); // 操作入力
+		System.out.print("電話番号を入力してください：");
+		String inputTel = scan.next(); // 操作入力
+		
+		
+		//データベースへの接続
+		try (
+			//正常にDBに接続された時に利用できるリモコンcon
+			Connection con = DriverManager.getConnection(url, user, pass);
+		) {			
+			//SQL文を実行する準備をする
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			
+			
+			//プレースホルダの部分に値を設定する
+			ps.setInt(1, inputCode);
+			ps.setString(2, inputName);
+			ps.setInt(3, inputage);
+			ps.setString(4, inputTel);
+				
+			//SQLを実行して結果を取得する
+			//INSERT、UPDATE、DELETEのSQLはexecuteUpdateで実行する
+			//戻り値は登録、変更、削除した数
+			int kazu = ps.executeUpdate();
+			System.out.println("登録数：" + kazu);
+			
+			if (kazu == 1) {
+				System.out.println("登録成功");
+				
+				
+				
+			} else {
+				System.out.println("登録失敗");
+			}
+			scan.close();
+		} catch (SQLException e) {
+			System.out.println("データベース関連エラー");
+			e.printStackTrace();
+		}
+	}
+
+}
